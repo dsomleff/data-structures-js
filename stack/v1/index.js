@@ -7,8 +7,7 @@ class Node {
 
 class Stack {
     constructor(value) {
-        const newNode = new Node(value);
-        this.top = newNode;
+        this.top = new Node(value);
         this.length = 1; // maybe height is a better name
     }
 
@@ -24,5 +23,16 @@ class Stack {
         this.length++;
 
         return this;
+    }
+
+    pop() {
+        if (this.length === 0) return undefined;
+        
+        let temp = this.top;
+        this.top = this.top.next;
+        temp.next = null;
+        this.length--;
+
+        return temp;
     }
 }
