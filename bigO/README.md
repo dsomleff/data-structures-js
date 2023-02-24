@@ -1,6 +1,6 @@
 # Big O (Runtime Complexity)
 
-### O1 (Constant time)
+### O(1) - Constant time
 No matter how many elements we are working with, the same algorithm/operation will take the same amount of time
 ```js
 function addItems(n) {
@@ -8,13 +8,13 @@ function addItems(n) {
 }
 ```
 
-### O log(n) (Logarithmic time)
+### O(log(n)) - Logarithmic time
 - If doubling the number of elements you are iterating over, doesn't double amount of work. E.g. searching operations
   are log(n).
 - Sorting operations. May be also referred as O n * log(n) (Quasilinear time)
 - Divide and conquer technique
 
-### O n (Linear time)
+### O(n) - Linear time
 Iterating through all elements in a collection of data. If you see a for loop spanning `0` to `array.length` it's 
 probably `O n`.
 ```js
@@ -25,7 +25,7 @@ function logItems(n) {
 }
 ```
 
-### O n^2 (Quadratic time)
+### O(n^2) - Quadratic time
 Every element in a collection has to be compared to every other element. 'The handshake problem'.
 ```js
 function logItems(n) {
@@ -37,7 +37,7 @@ function logItems(n) {
 }
 ```
 
-### O 2^n (Exponential time)
+### O(2^n) - Exponential time
 If you add a single element to a collection, the processing power required doubles. Most dangerous. Avoid it as much 
 as possible.
 
