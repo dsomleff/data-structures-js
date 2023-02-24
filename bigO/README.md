@@ -41,3 +41,7 @@ function logItems(n) {
 If you add a single element to a collection, the processing power required doubles. Most dangerous. Avoid it as much 
 as possible.
 
+### Big O Cheat Sheet
+https://www.bigocheatsheet.com
+
+
