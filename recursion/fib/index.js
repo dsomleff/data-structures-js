@@ -28,15 +28,31 @@ function fib(n) {
  * Recursive Solution
  * Exponential time algorithm 
  */
-function fib(n) {
+function slowFib(n) {
     if (n < 2) {
         return n;
     }
     
-    return fib(n - 1) + fib(n - 2);
+    return slowFib(n - 1) + slowFib(n - 2);
 }
 
 /**
  * Memoization Solution
- * 
+ * Combine this function with slowFib above
+ * Or any other func that requires memoization
  */
+function memoize(fn) {
+    const cache = {};
+    
+    return function (...args) {
+        if(cache[args]) return cache[args]; // fn was called with the same args we have a result
+        
+        const result =  fn.apply(this, args);
+        cache[args] = result;
+        
+        return result;
+    }
+}
+
+const fib = memoize(slowFib);
+fib(15);
