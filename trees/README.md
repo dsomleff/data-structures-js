@@ -18,6 +18,16 @@ the tree algorithm always starts from the parent.
            / \      /   \
          18   27   52    82
 ```
+If inserted node = the existed node you can add count property into the node
+```js
+{
+    value: 76, 
+    left: null,
+    right: null,
+    count: 2
+}
+```
+or your tree will always contain only unique values.
 ### BST Big O
 No matter what you're doing with the tree: finding, adding, removing - number of steps always will be the same. We 
 can call it `O(log n)`. </br>
