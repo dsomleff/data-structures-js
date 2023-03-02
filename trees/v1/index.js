@@ -54,5 +54,32 @@ class BST {
 
         return false;
     }
+
+    minValueNode(currentNode){
+        while(currentNode.left !== null) {
+            currentNode = currentNode.left;
+        }
+        return currentNode;
+    }
 }
+
+let myTree = new BST();
+myTree.insert(47);
+myTree.insert(21);
+myTree.insert(76);
+myTree.insert(18);
+myTree.insert(27);
+myTree.insert(52);
+myTree.insert(82);
+
+// insert call;
+myTree.insert(42);
+
+// contains call
+myTree.contains(27);
+myTree.contains(17);
+
+// minValueNode call
+myTree.minValueNode(myTree.root);
+myTree.minValueNode(myTree.root.right);
 
