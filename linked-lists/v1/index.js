@@ -7,8 +7,7 @@ class Node {
 
 class LinkedList {
     constructor(value) {
-        const newNode = new Node(value);
-        this.head = newNode;
+        this.head = new Node(value);
         this.tail = this.head;
         this.length = 1;
     }
@@ -130,6 +129,30 @@ class LinkedList {
 
         return this;
     }
-
-
 }
+
+let myLinkedList = new LinkedList(7);
+
+// push
+myLinkedList.push(4);
+myLinkedList.push(23);
+myLinkedList.push(7);
+
+myLinkedList.pop();
+
+myLinkedList.unshift(8);
+
+myLinkedList.shift();
+
+myLinkedList.get(-1);
+myLinkedList.get(33);
+myLinkedList.get(4);
+
+myLinkedList.set(1, 5);
+
+myLinkedList.insert(1, 1);
+
+myLinkedList.remove(2);
+
+myLinkedList.reverse();
+

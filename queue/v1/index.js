@@ -43,7 +43,11 @@ class Queue {
         this.length--;
 
         return temp;
-
-
     }
 }
+
+let myQueue = new Queue(11);
+myQueue.enqueue(3);
+myQueue.enqueue(23);
+
+myQueue.dequeue();

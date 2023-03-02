@@ -141,5 +141,23 @@ class DoublyLinkedList {
             temp = temp.prev
         }
     }
-
 }
+
+let myDoublyLinkedList = new DoublyLinkedList(1);
+myDoublyLinkedList.push(2);
+
+myDoublyLinkedList.pop();
+
+myDoublyLinkedList.unshift(1);
+
+myDoublyLinkedList.shift();
+
+myDoublyLinkedList.get(2);
+
+myDoublyLinkedList.set(1, 99);
+
+myDoublyLinkedList.insert(0, 5);
+
+myDoublyLinkedList.remove(1);
+
+myDoublyLinkedList.reverse();
