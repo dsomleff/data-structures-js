@@ -44,4 +44,10 @@ node will be bigger than parent:
 ```
 it's `O(n)` and it looks like Linked List.
 
+### Examples of trees in computing:
+- File system
+- Game dev
+- DB
+- Computer networking
+
 

@@ -56,8 +56,39 @@ class BST {
     }
 
     minValueNode(currentNode){
-        while(currentNode.left !== null) {
+        while(currentNode && currentNode.left) {
             currentNode = currentNode.left;
+        }
+        return currentNode;
+    }
+
+    minValue(currentNode) {
+        while (currentNode.left != null) {
+            currentNode = currentNode.left;
+        }
+        return currentNode.value;
+    }
+
+
+    deleteNode(value, currentNode=this.root) {
+        if (currentNode == null) {
+            return null;
+        } else if (value < currentNode.value) {
+            currentNode.left = this.deleteNode(value, currentNode.left);
+        } else if (value > currentNode.value) {
+            currentNode.right = this.deleteNode(value, currentNode.right);
+        } else {
+            if (currentNode.left == null && currentNode.right == null) {
+                currentNode = null;
+            } else if (currentNode.left == null) {
+                currentNode = currentNode.right;
+            } else if (currentNode.right == null) {
+                currentNode = currentNode.left;
+            } else {
+                let subTreeMin = this.minValue(currentNode.right);
+                currentNode.value = subTreeMin;
+                currentNode.right = this.deleteNode(subTreeMin, currentNode.right);
+            }
         }
         return currentNode;
     }
@@ -72,14 +103,15 @@ myTree.insert(27);
 myTree.insert(52);
 myTree.insert(82);
 
-// insert call;
 myTree.insert(42);
 
-// contains call
 myTree.contains(27);
 myTree.contains(17);
 
 // minValueNode call
 myTree.minValueNode(myTree.root);
 myTree.minValueNode(myTree.root.right);
+
+myTree.deleteNode(18);
+myTree.deleteNode(52, 76);
 
