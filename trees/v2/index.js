@@ -31,9 +31,12 @@ class Tree {
     }
 
     /**
+     * Breadth First.
      * Moving through the Tree from left to right
      * going through each level of tree.
-     * Display hierarchy in relative order 
+     * Display hierarchy in relative order
+     * Use queue for extra memory
+     * 
      */
     traverseBF(fn) {
         let temp = [this.root];
@@ -44,9 +47,26 @@ class Tree {
             fn(current);
         }
     }
+
+    /**
+     * Depth First
+     * Moving through the Tree and go through the left side of a tree
+     * Loop back to the next child and repeat.
+     * Use stack for extra memory
+     */
+    traverseDF(fn) {
+        let temp = [this.root];
+        while(temp.length) {
+            let current = temp.shift();
+            
+            temp.unshift(...current.children);
+            fn(current);
+        }
+    }
 }
 
 const node = new Node(1);
 const tree = new Tree();
 tree.root = node;
 tree.traverseBF(node => node.data += 10);
+tree.traverseDF(node => node.data += 10);
