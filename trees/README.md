@@ -28,6 +28,10 @@ If inserted node = the existed node you can add count property into the node
 }
 ```
 or your tree will always contain only unique values.
+
+### Binary Tree (BT)
+Main difference with BST - no data flow to left and right. Any value can be parent/child of the tree, until it has 
+left and right properties - it's a valid BT   
 ### BST Big O
 No matter what you're doing with the tree: finding, adding, removing - number of steps always will be the same. We 
 can call it `O(log n)`. </br>
