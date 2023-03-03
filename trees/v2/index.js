@@ -24,3 +24,29 @@ class Node {
         this.children = this.children.filter(node => node.data !== data);
     }
 }
+
+class Tree {
+    constructor() {
+        this.root = null;
+    }
+
+    /**
+     * Moving through the Tree from left to right
+     * going through each level of tree.
+     * Display hierarchy in relative order 
+     */
+    traverseBF(fn) {
+        let temp = [this.root];
+        while(temp.length) {
+            const current = temp.shift();
+            
+            temp.push(...current.children);
+            fn(current);
+        }
+    }
+}
+
+const node = new Node(1);
+const tree = new Tree();
+tree.root = node;
+tree.traverseBF(node => node.data += 10);
