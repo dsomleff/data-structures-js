@@ -4,8 +4,7 @@ class HashTable {
     }
 
     /**
-     * method that should only
-     * be called by other methods.
+     * method that should only be called by other methods.
      */
     _hash(key) {
         let hash = 0;
@@ -14,6 +13,21 @@ class HashTable {
         }
         return hash;
     }
+
+    set(key, value) {
+        let index = this._hash(key);
+        
+        if (!this.dataMap[index]) {
+            this.dataMap[index] = [];
+        }
+        
+        this.dataMap[index].push([key, value]);
+
+        return this;
+    }
 }
 
 let myHashTable = new HashTable();
+myHashTable.set('lumber', 70);
+myHashTable.set('washers', 50);
+myHashTable.set('bolts', 1400);
