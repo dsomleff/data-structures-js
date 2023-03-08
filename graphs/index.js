@@ -31,16 +31,36 @@ class Graph {
         }
         return false;
     }
+
+    removeVertex(vertex) {
+        if (!this.adjacencyList[vertex]) return undefined;
+
+        while(this.adjacencyList[vertex].length) {
+            let temp = this.adjacencyList[vertex].pop();
+            this.removeEdge(vertex, temp);
+        }
+
+        delete this.adjacencyList[vertex];
+        
+        return this;
+    }
 }
 
 let myGraph = new Graph();
 myGraph.addVertex('A');
 myGraph.addVertex('B');
 myGraph.addVertex('C');
+myGraph.addVertex('D');
 
 myGraph.addEdge('A', 'B');
-myGraph.addVertex('B', 'C');
-myGraph.addVertex('C', 'A');
+myGraph.addVertex('A', 'C');
+myGraph.addVertex('A', 'D');
+myGraph.addVertex('B', 'D');
+myGraph.addVertex('C', 'D');
 
-myGraph.removeEdge('A', 'B');
-myGraph.removeEdge('A', 'D');
+myGraph.removeVertex('D');
+myGraph.removeVertex('E');
+
+// myGraph.removeEdge('A', 'B');
+// myGraph.removeEdge('A', 'F');
+

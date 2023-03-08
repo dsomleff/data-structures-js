@@ -54,6 +54,13 @@ Insert action for both matrix is the same - `O(1)`. <br>
 Remove Connection with AM is `O(1)`. For AL is more complex.<br>
 Remove Edge action is slightly better for AL then for AM. <br>
 
+### Usage of Graph
+- Mapping system is using graph. It is useful to find out which is an excellent place from the location as well as your 
+nearby location. In GPS we also use graphs.
+- Facebook uses graphs. Using graphs suggests mutual friends. it shows a list of the f following pages, friends, and 
+  contact list.
+- 
+
 
 
 
