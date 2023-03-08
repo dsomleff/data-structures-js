@@ -38,3 +38,41 @@ The hashing is used for the linking of the file name to the path of the file. Wh
 - Programming Language
 - Compilers
 - Cryptography
+
+### Big O
+HT as O(1) even though it is not strict constant time.
+
+
+### Interview Q
+Inefficient way O(n^2): 
+```js
+function itemInCommon(arr1, arr2) {
+    for (let i = 0; i < arr1.lenght; i++) {
+        for (let j = 0; j < arr2.lenght; j++) {
+            if (arr[i] === arr2[j]) return true;
+        }
+    }
+    
+    return false;
+}
+
+itemInCommon([1, 3, 5], [2, 4, 5]);
+```
+O(n) way:
+```js
+function itemInCommon(arr1, arr2) {
+    let obj = {};
+     
+    for (let i = 0; i < arr1.lenght; i++) {
+        obj[arr1[i]] = true
+    }
+
+    for (let j = 0; j < arr2.lenght; j++) {
+        if (obj[arr2[j]]) return true;
+    }
+    
+    return false;
+}
+
+itemInCommon([1, 3, 5], [2, 4, 5]);
+```
