@@ -1,5 +1,5 @@
 /**
- * Depth First Search - Pre order
+ * Depth First Search - Post Order
  */
 class Node {
     constructor(value) {
@@ -39,20 +39,18 @@ class BST {
         }
     }
 
-    DFSPreOrder() {
+    DFSPostOrder() {
         let results = [];
-        function traverse(currentNode) {
-            results.push(currentNode.value);
+        function traverse(currentNode){
             if (currentNode.left) traverse(currentNode.left);
             if (currentNode.right) traverse(currentNode.right);
+            results.push(currentNode.value);
         }
         traverse(this.root);
-        
         return results;
     }
 
 }
-
 
 let myTree = new BST();
 
@@ -64,5 +62,4 @@ myTree.insert(27);
 myTree.insert(52);
 myTree.insert(82);
 
-myTree.DFSPreOrder();
-
+myTree.DFSPostOrder();
