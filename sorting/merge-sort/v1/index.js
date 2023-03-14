@@ -29,4 +29,15 @@ function merge(array1, array2) {
     return combined;
 }
 
+function mergeSort(array) {
+    if (array.length === 1) return array;
+
+    let midIndex = Math.floor(array.length/2);
+    let left = mergeSort(array.slice(0, midIndex));
+    let right = mergeSort(array.slice(midIndex));
+
+    return merge(left, right);
+}
+
 merge([1,3,7,8], [2,3,5,6]);
+mergeSort([3,1,4,2]);
