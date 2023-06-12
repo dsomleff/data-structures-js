@@ -1,4 +1,4 @@
-function bubble_sort(arr: number[]): void {
+export default function bubble_sort(arr: number[]): number[] {
     for (let i = 0; i < arr.length - 1; ++i) {
         for (let j = i + 1; j < arr.length; ++j) {
             if (arr[i] > arr[j]) {
@@ -8,7 +8,7 @@ function bubble_sort(arr: number[]): void {
             }
         }
     }
-    console.log(arr);
+    return arr;
 }
 
 const sortMe = [5, 3, 8, 2, 1, 4];
