@@ -1,10 +1,15 @@
 interface MyLinkedList {
     addFront(item: number): void;
-    // getFirst(item: any): number;
-    // getLast(item: any): number;
+    getFirst(): number | null;
+    getLast(): number | null | undefined;
 }
 
-class Node {
+interface MyNode {
+    data: number;
+    next: Node | null;
+}
+
+class Node implements MyNode{
     data: number;
     next: Node | null;
 
@@ -15,34 +20,43 @@ class Node {
 }
 
 class LinkedList implements MyLinkedList {
-    head: Node | null;
-    length: number;
-
-    constructor(data: number) {
-        this.head = new Node(data);
-        this.length = 1;
-    }
+    constructor(
+        public head: Node | null = null,
+        public length: number = 0,
+        public tail: Node | null = null,
+    ) {}
 
     addFront(item: number): void {
         const node = new Node(item);
 
         if (!this.head) {
             this.head = node;
+            this.tail = node;
         }
 
         node.next = this.head;
         this.head = node;
+        if (this.tail) this.tail = this.tail.next;
         this.length++;
-
     }
 
-    getFirst(item: any) {}
-    getLast(item: any) {}
+    getFirst(): number | null {
+        if (!this.head) return null;
+
+        return this.head.data;
+    }
+    getLast(): number | null | undefined {
+        if (!this.head) return null;
+
+        if (this.tail) return this.tail.data;
+    }
 }
 
-const myLL = new LinkedList(1);
+const myLL = new LinkedList();
+myLL.addFront(1);
 myLL.addFront(2);
 myLL.addFront(3);
-console.log(myLL);
+console.log(myLL.getFirst());
+console.log(myLL.getLast());
 
 export default LinkedList;
