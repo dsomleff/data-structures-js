@@ -30,7 +30,7 @@ class LinkedList implements MyLinkedList {
         public tail: Node | null = null,
     ) {}
 
-    createIfEmpty(item: number): Node {
+    public createIfEmpty(item: number): Node {
         const node = new Node(item);
 
         if (!this.head) {
@@ -41,7 +41,7 @@ class LinkedList implements MyLinkedList {
         return node;
     }
 
-    addFront(item: number): void {
+    public addFront(item: number): void {
         const node = this.createIfEmpty(item);
 
         node.next = this.head;
@@ -52,19 +52,19 @@ class LinkedList implements MyLinkedList {
         return;
     }
 
-    getFirst(): number | null {
+    public getFirst(): number | null {
         if (!this.head) return null;
 
         return this.head.data;
     }
 
-    getLast(): number | null | undefined {
+    public getLast(): number | null | undefined {
         if (!this.head) return null;
 
         if (this.tail) return this.tail.data;
     }
 
-    addBack(item: number): void {
+    public addBack(item: number): void {
         const node = this.createIfEmpty(item);
 
         if (this.tail) {
@@ -76,11 +76,11 @@ class LinkedList implements MyLinkedList {
         return;
     }
 
-    getSize(): number {
+    public getSize(): number {
         return this.length;
     }
 
-    removeAll(): void {
+    public removeAll(): void {
         this.head = null;
         this.tail = null;
         this.length = 0;
