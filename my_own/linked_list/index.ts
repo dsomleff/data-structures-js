@@ -1,7 +1,9 @@
 interface MyLinkedList {
+    createIfEmpty(item: number): Node,
     addFront(item: number): void;
     getFirst(): number | null;
     getLast(): number | null | undefined;
+    addBack(item: number): void,
 }
 
 interface MyNode {
@@ -26,7 +28,7 @@ class LinkedList implements MyLinkedList {
         public tail: Node | null = null,
     ) {}
 
-    addFront(item: number): void {
+    createIfEmpty(item: number): Node {
         const node = new Node(item);
 
         if (!this.head) {
@@ -34,10 +36,18 @@ class LinkedList implements MyLinkedList {
             this.tail = node;
         }
 
+        return node;
+    }
+
+    addFront(item: number): void {
+        const node = this.createIfEmpty(item);
+
         node.next = this.head;
         this.head = node;
         if (this.tail) this.tail = this.tail.next;
         this.length++;
+
+        return;
     }
 
     getFirst(): number | null {
@@ -45,10 +55,23 @@ class LinkedList implements MyLinkedList {
 
         return this.head.data;
     }
+
     getLast(): number | null | undefined {
         if (!this.head) return null;
 
         if (this.tail) return this.tail.data;
+    }
+
+    addBack(item: number): void {
+        const node = this.createIfEmpty(item);
+
+        if (this.tail) {
+            this.tail.next = node;
+            this.tail = this.tail.next;
+            this.length++;
+        }
+
+        return;
     }
 }
 
@@ -56,6 +79,9 @@ const myLL = new LinkedList();
 myLL.addFront(1);
 myLL.addFront(2);
 myLL.addFront(3);
+myLL.addBack(5);
+myLL.addBack(6);
+myLL.addBack(7);
 console.log(myLL.getFirst());
 console.log(myLL.getLast());
 
