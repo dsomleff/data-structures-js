@@ -33,4 +33,12 @@ describe('Linked List', function () {
         expect(myLL.getFirst()).toEqual(1);
         expect(myLL.getLast()).toEqual(3);
     });
+
+    it('should show the size of a list', () => {
+        expect(myLL.getSize()).toEqual(0);
+        myLL.addBack(1);
+        expect(myLL.getSize()).toEqual(1);
+        myLL.addBack(2);
+        expect(myLL.getSize()).toEqual(2);
+    });
 });

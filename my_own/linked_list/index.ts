@@ -4,6 +4,7 @@ interface MyLinkedList {
     getFirst(): number | null;
     getLast(): number | null | undefined;
     addBack(item: number): void,
+    getSize(): number,
 }
 
 interface MyNode {
@@ -73,6 +74,10 @@ class LinkedList implements MyLinkedList {
 
         return;
     }
+
+    getSize(): number {
+        return this.length;
+    }
 }
 
 const myLL = new LinkedList();
@@ -84,5 +89,6 @@ myLL.addBack(6);
 myLL.addBack(7);
 console.log(myLL.getFirst());
 console.log(myLL.getLast());
+console.log(myLL.getSize());
 
 export default LinkedList;
