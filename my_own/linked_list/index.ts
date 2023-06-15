@@ -24,11 +24,9 @@ class Node implements MyNode{
 }
 
 class LinkedList implements MyLinkedList {
-    constructor(
-        public head: Node | null = null,
-        public length: number = 0,
-        public tail: Node | null = null,
-    ) {}
+    public head: Node | null = null;
+    public length: number = 0;
+    public tail: Node | null = null;
 
     public createIfEmpty(item: number): Node {
         const node = new Node(item);
