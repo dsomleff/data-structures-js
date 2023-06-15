@@ -6,6 +6,7 @@ interface MyLinkedList {
     addBack(item: number): void,
     getSize(): number,
     removeAll(): void,
+    removeNode(item: number): void,
 }
 
 interface MyNode {
@@ -24,9 +25,9 @@ class Node implements MyNode{
 }
 
 class LinkedList implements MyLinkedList {
-    public head: Node | null = null;
-    public length: number = 0;
-    public tail: Node | null = null;
+    private head: Node | null = null;
+    private length = 0;
+    private tail: Node | null = null;
 
     public createIfEmpty(item: number): Node {
         const node = new Node(item);
@@ -51,13 +52,13 @@ class LinkedList implements MyLinkedList {
     }
 
     public getFirst(): number | null {
-        if (!this.head) return null;
+        if (this.head === null) return null;
 
         return this.head.data;
     }
 
     public getLast(): number | null | undefined {
-        if (!this.head) return null;
+        if (this.head === null) return null;
 
         if (this.tail) return this.tail.data;
     }
@@ -85,6 +86,26 @@ class LinkedList implements MyLinkedList {
 
         return;
     }
+
+    public removeNode(item: number) {
+        if (this.head === null) return;
+
+        if (this.head.data === item) {
+            this.head = this.head.next;
+            this.length--;
+        }
+
+        let current = this.head;
+
+        while(current?.next?.data !== item){
+            current = current?.next!;
+        }
+
+        current.next = current.next.next;
+        this.length--;
+
+        return;
+    }
 }
 
 const myLL = new LinkedList();
@@ -96,7 +117,9 @@ myLL.addBack(6);
 console.log(myLL.getFirst());
 console.log(myLL.getLast());
 console.log(myLL.getSize());
+myLL.removeNode(5);
+console.log(myLL.getSize());
 myLL.removeAll();
-console.log(myLL);
+console.log({ myLL });
 
 export default LinkedList;
