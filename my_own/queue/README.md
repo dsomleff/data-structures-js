@@ -3,3 +3,5 @@
 - Logic is limited by:
     - always add node to the tail (add)
     - always remove node from the head (remove)
+    - isEmpty - check the length
+    - peek - return first value
