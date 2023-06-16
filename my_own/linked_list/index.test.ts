@@ -67,4 +67,15 @@ describe('Linked List', function () {
         expect(myLL.getFirst()).toBe(1);
         expect(myLL.getLast()).toBe(3);
     });
+
+    it('should reverse the list', () => {
+        myLL.addFront(2);
+        myLL.addFront(1);
+        myLL.addBack(5);
+        myLL.addBack(6);
+
+        myLL.reverse();
+        expect(myLL.getFirst()).toBe(6);
+        expect(myLL.getLast()).toBe(1);
+    });
 });
