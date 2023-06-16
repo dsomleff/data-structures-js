@@ -7,6 +7,7 @@ interface MyLinkedList {
     getSize(): number,
     removeAll(): void,
     removeNode(item: number): void,
+    reverse(): void,
 }
 
 interface MyNode {
@@ -87,7 +88,7 @@ class LinkedList implements MyLinkedList {
         return;
     }
 
-    public removeNode(item: number) {
+    public removeNode(item: number): void {
         if (this.head === null) return;
 
         if (this.head.data === item) {
@@ -106,11 +107,30 @@ class LinkedList implements MyLinkedList {
 
         return;
     }
+
+    public reverse(): void {
+        if (this.head === null) return;
+
+        let temp: Node | null = this.head;
+        this.head = this.tail;
+        this.tail = temp;
+        let next = temp.next;
+        let prev = null;
+
+        for (let i = 0; i < this.length; i++) {
+            next = temp.next!;
+            temp.next = prev;
+            prev = temp;
+            temp = next;
+        }
+
+        return;
+    }
 }
 
 const myLL = new LinkedList();
-myLL.addFront(1);
 myLL.addFront(2);
+myLL.addFront(1);
 myLL.addBack(5);
 myLL.addBack(6);
 
@@ -119,7 +139,7 @@ console.log(myLL.getLast());
 console.log(myLL.getSize());
 myLL.removeNode(5);
 console.log(myLL.getSize());
+console.log({ myLL });
 myLL.removeAll();
 console.log({ myLL });
-
 export default LinkedList;
