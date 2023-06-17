@@ -1,29 +1,29 @@
-interface QNode {
-    value: number;
-    next: Node | null;
+interface QNode<T> {
+    value: T;
+    next: Node<T> | null;
 }
 
-class Node implements QNode {
-    value: number;
-    next: Node | null;
+class Node<T> implements QNode<T> {
+    value: T;
+    next: Node<T> | null;
 
-    constructor(value: number) {
+    constructor(value: T) {
         this.value = value;
         this.next = null;
     }
 }
 
-export default class Queue{
+export default class Queue<T>{
     public length: number;
-    private head?: Node | undefined;
-    private tail?: Node| undefined;
+    private head?: Node<T> | undefined;
+    private tail?: Node<T>| undefined;
 
     constructor() {
         this.head = this.tail = undefined;
         this.length = 0;
     }
 
-    add(item: number): void {
+    add(item: T): void {
         const node = new Node(item);
 
         if (this.head === undefined) {
@@ -48,9 +48,9 @@ export default class Queue{
     // }
 }
 
-const q = new Queue();
-q.add(1);
-q.add(2);
-q.add(3);
+const q = new Queue<string>();
+q.add('1');
+q.add('2');
+q.add('3');
 console.log({q});
 // console.log(q.isEmpty());
