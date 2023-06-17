@@ -13,7 +13,7 @@ export default class Queue<T> implements MyQueue<T>{
     add(item: T): void {
         const node = { value: item } as QNode<T>;
 
-        if (this.head === undefined) {
+        if (!this.head) {
             this.head = this.tail = node;
             this.length++;
 
@@ -36,6 +36,10 @@ export default class Queue<T> implements MyQueue<T>{
         this.head = this.head.next;
         this.length--;
         temp.next = undefined;
+
+        if (this.length === 0) {
+            this.tail = undefined;
+        }
 
         return temp.value;
     }
