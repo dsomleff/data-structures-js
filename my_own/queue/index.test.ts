@@ -25,5 +25,14 @@ describe('Queue', () => {
         q.remove();
 
         expect(q.peek()).toBe('11');
-    })
+    });
+
+    it('should show is empty Q or not', () => {
+        q.add('1');
+        q.add('2');
+        expect(q.isEmpty()).toBeFalsy();
+        q.remove();
+        q.remove();
+        expect(q.isEmpty()).toBeTruthy();
+    });
 })

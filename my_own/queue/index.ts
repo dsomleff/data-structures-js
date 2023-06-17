@@ -45,7 +45,7 @@ export default class Queue<T> implements MyQueue<T>{
     }
 
     isEmpty(): boolean {
-        return this.length ? false : true;
+        return !this.length;
     }
 }
 
