@@ -1,36 +1,36 @@
-interface MyLinkedList {
-    createIfEmpty(item: number): Node,
-    addFront(item: number): void;
-    getFirst(): number | null;
-    getLast(): number | null | undefined;
-    addBack(item: number): void,
+interface MyLinkedList<T> {
+    createIfEmpty(item: T): Node<T>,
+    addFront(item: T): void;
+    getFirst(): T | null;
+    getLast(): T | null | undefined;
+    addBack(item: T): void,
     getSize(): number,
     removeAll(): void,
-    removeNode(item: number): void,
+    removeNode(item: T): void,
     reverse(): void,
 }
 
-interface MyNode {
-    data: number;
-    next: Node | null;
+interface MyNode<T> {
+    data: T;
+    next: Node<T> | null;
 }
 
-class Node implements MyNode{
-    data: number;
-    next: Node | null;
+class Node<T> implements MyNode<T>{
+    data: T;
+    next: Node<T> | null;
 
-    constructor(data: number) {
+    constructor(data: T) {
         this.data = data;
         this.next = null;
     }
 }
 
-class LinkedList implements MyLinkedList {
-    private head: Node | null = null;
+class LinkedList<T> implements MyLinkedList<T> {
+    private head: Node<T> | null = null;
     private length = 0;
-    private tail: Node | null = null;
+    private tail: Node<T> | null = null;
 
-    public createIfEmpty(item: number): Node {
+    public createIfEmpty(item: T): Node<T> {
         const node = new Node(item);
 
         if (!this.head) {
@@ -41,7 +41,7 @@ class LinkedList implements MyLinkedList {
         return node;
     }
 
-    public addFront(item: number): void {
+    public addFront(item: T): void {
         const node = this.createIfEmpty(item);
 
         node.next = this.head;
@@ -52,19 +52,19 @@ class LinkedList implements MyLinkedList {
         return;
     }
 
-    public getFirst(): number | null {
+    public getFirst(): T | null {
         if (this.head === null) return null;
 
         return this.head.data;
     }
 
-    public getLast(): number | null | undefined {
+    public getLast(): T | null | undefined {
         if (this.head === null) return null;
 
         if (this.tail) return this.tail.data;
     }
 
-    public addBack(item: number): void {
+    public addBack(item: T): void {
         const node = this.createIfEmpty(item);
 
         if (this.tail) {
@@ -88,7 +88,7 @@ class LinkedList implements MyLinkedList {
         return;
     }
 
-    public removeNode(item: number): void {
+    public removeNode(item: T): void {
         if (this.head === null) return;
 
         if (this.head.data === item) {
@@ -111,7 +111,7 @@ class LinkedList implements MyLinkedList {
     public reverse(): void {
         if (this.head === null) return;
 
-        let temp: Node | null = this.head;
+        let temp: Node<T> | null = this.head;
         this.head = this.tail;
         this.tail = temp;
         let next = temp.next;
@@ -128,7 +128,7 @@ class LinkedList implements MyLinkedList {
     }
 }
 
-const myLL = new LinkedList();
+const myLL = new LinkedList<number>();
 myLL.addFront(2);
 myLL.addFront(1);
 myLL.addBack(5);
