@@ -1,7 +1,4 @@
-interface QNode<T> {
-    value: T;
-    next: Node<T> | null;
-}
+import {QNode, MyQueue} from "./types";
 
 class Node<T> implements QNode<T> {
     value: T;
@@ -13,7 +10,7 @@ class Node<T> implements QNode<T> {
     }
 }
 
-export default class Queue<T>{
+export default class Queue<T> implements MyQueue<T>{
     public length: number;
     private head?: Node<T> | undefined;
     private tail?: Node<T>| undefined;
@@ -39,9 +36,9 @@ export default class Queue<T>{
 
     // remove(): number | undefined {}
 
-    // peek(): number | undefined {
-    //     return this.head?.value;
-    // }
+    peek(): T | undefined {
+        return this.head?.value;
+    }
     //
     // isEmpty(): boolean {
     //     return this.length ? false : true;
@@ -53,4 +50,5 @@ q.add('1');
 q.add('2');
 q.add('3');
 console.log({q});
+console.log(q.peek());
 // console.log(q.isEmpty());
