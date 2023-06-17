@@ -1,6 +1,6 @@
 interface QNode<T> {
     value: T;
-    next: QNode<T> | null;
+    next?: QNode<T>;
 }
 
 interface MyQueue<T> {
