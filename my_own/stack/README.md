@@ -1,0 +1,7 @@
+- Stack is DS build on top of the LinkedList.
+- Main feature is first in last out.
+- Logic is limited by:
+    - always add node to the head (push)
+    - always remove node from the head (pop)
+    - isEmpty - check the length
+    - peek - return first value
