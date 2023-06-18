@@ -8,5 +8,5 @@ Basically, there are two types of data structures :
 1. Linear Data Structure — Array, Queue, Stack, Linked List, etc…
 2. Non-linear Data Structure — Trees, Graphs, etc…
 ---
-`my_own` code is created for more deep DS and Algorithms understandings 
+`my_own` code is created for more deep understanding of DS and Algorithms.  
 
