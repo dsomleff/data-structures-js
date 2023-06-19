@@ -1,6 +1,6 @@
 import LinkedList from "./index";
 
-const myLL = new LinkedList();
+const myLL = new LinkedList<number>();
 
 describe('Linked List', function () {
     beforeEach(() => {

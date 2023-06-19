@@ -1,37 +1,12 @@
-interface MyLinkedList<T> {
-    createIfEmpty(item: T): Node<T>,
-    addFront(item: T): void;
-    getFirst(): T | null;
-    getLast(): T | null | undefined;
-    addBack(item: T): void,
-    getSize(): number,
-    removeAll(): void,
-    removeNode(item: T): void,
-    reverse(): void,
-}
+import {MyNode, MyLinkedList} from "./types";
 
-interface MyNode<T> {
-    data: T;
-    next: Node<T> | null;
-}
-
-class Node<T> implements MyNode<T>{
-    data: T;
-    next: Node<T> | null;
-
-    constructor(data: T) {
-        this.data = data;
-        this.next = null;
-    }
-}
-
-class LinkedList<T> implements MyLinkedList<T> {
-    private head: Node<T> | null = null;
+export default class LinkedList<T> implements MyLinkedList<T>{
+    private head: MyNode<T> | null = null;
     private length = 0;
-    private tail: Node<T> | null = null;
+    private tail: MyNode<T> | null = null;
 
-    public createIfEmpty(item: T): Node<T> {
-        const node = new Node(item);
+    public createIfEmpty(item: T): MyNode<T> {
+        const node = { data: item, next: null} as MyNode<T>;
 
         if (!this.head) {
             this.head = node;
@@ -111,7 +86,7 @@ class LinkedList<T> implements MyLinkedList<T> {
     public reverse(): void {
         if (this.head === null) return;
 
-        let temp: Node<T> | null = this.head;
+        let temp: MyNode<T> | null = this.head;
         this.head = this.tail;
         this.tail = temp;
         let next = temp.next;
@@ -127,19 +102,3 @@ class LinkedList<T> implements MyLinkedList<T> {
         return;
     }
 }
-
-const myLL = new LinkedList<number>();
-myLL.addFront(2);
-myLL.addFront(1);
-myLL.addBack(5);
-myLL.addBack(6);
-
-console.log(myLL.getFirst());
-console.log(myLL.getLast());
-console.log(myLL.getSize());
-myLL.removeNode(5);
-console.log(myLL.getSize());
-console.log({ myLL });
-myLL.removeAll();
-console.log({ myLL });
-export default LinkedList;
