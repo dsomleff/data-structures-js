@@ -49,17 +49,6 @@ export default class Queue<T> implements MyQueue<T>{
     }
 
     isEmpty(): boolean {
-        return !this.length;
+        return this.length === 0;
     }
 }
-
-const q = new Queue<number>();
-q.add(1);
-q.add(2);
-q.add(3);
-console.log(q.peek());
-console.log(q.remove())
-q.remove();
-q.remove();
-console.log(q.isEmpty());
-

@@ -39,6 +39,6 @@ export default class Stack<T> {
     }
 
     isEmpty(): boolean {
-        return !this.length;
+        return this.length === 0;
     }
 }
