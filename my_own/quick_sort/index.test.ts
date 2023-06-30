@@ -1,3 +1,5 @@
+import quick_sort from "./index";
+
 describe('Quick Sort', () => {
     it('should be a function', () => {
         expect(typeof quick_sort).toBe('function');
