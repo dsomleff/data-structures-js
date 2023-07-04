@@ -41,7 +41,7 @@ export default class DoublyLinkedList<T> implements MyDoublyLinkedList<T>{
     }
 
     get(index: number): T | undefined {
-        return undefined;
+        return this.getAt(index)?.value;
     }
 
     insertAt(item: T, index: number): void {
@@ -58,12 +58,7 @@ export default class DoublyLinkedList<T> implements MyDoublyLinkedList<T>{
         }
 
         this.length++;
-        let curr = this.head;
-        for (let i = 0; curr && i < index; i++) {
-            curr = curr.next;
-        }
-
-        curr = curr as MyNode<T>;
+        const curr = this.getAt(index) as MyNode<T>;
         const node = {value: item} as MyNode<T>;
 
         node.next = curr;
@@ -76,10 +71,67 @@ export default class DoublyLinkedList<T> implements MyDoublyLinkedList<T>{
     }
 
     remove(item: T): T | undefined {
-        return undefined;
+        let curr = this.head;
+
+        for (let i = 0; curr && i < this.length; ++i) {
+            if (curr.value === item) {
+                break;
+            }
+            curr = curr.next;
+        }
+
+        if (!curr) {
+            return undefined;
+        }
+
+        return this.removeNode(curr);
     }
 
     removeAt(index: number): T | undefined {
-        return undefined;
+        const node = this.getAt(index);
+
+        if (!node) {
+            return undefined;
+        }
+
+        return this.removeNode(node);
+    }
+
+    private getAt(index: number): MyNode<T> | undefined{
+        let curr = this.head;
+        for (let i = 0; curr && i < index; i++) {
+            curr = curr.next;
+        }
+
+        return curr;
+    }
+
+    private removeNode(node: MyNode<T>): T | undefined {
+        this.length--;
+
+        if (this.length === 0) {
+            const out = this.head?.value;
+            this.head = this.tail = undefined;
+            return out;
+        }
+
+        if (node.prev) {
+            node.prev = node.next;
+        }
+
+        if (node.next) {
+            node.next = node.prev;
+        }
+
+        if (node === this.head) {
+            this.head = node.next;
+        }
+
+        if (node === this.tail) {
+            this.tail = node.prev;
+        }
+
+        node.prev = node.next = undefined;
+        return node.value;
     }
 }
