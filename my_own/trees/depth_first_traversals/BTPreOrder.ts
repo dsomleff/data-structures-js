@@ -1,8 +1,4 @@
-type BinaryNode<T> = {
-    value: T,
-    left: BinaryNode<T>,
-    right: BinaryNode<T>
-};
+import BinaryNode from "./types";
 
 function walk(curr: BinaryNode<number> | null, path: number[]): number[] {
     if (!curr) {
