@@ -29,10 +29,8 @@ export default class BTS {
     }
 
     public find(key: number): string | null {
-        // First find the node
         let node: BinaryNode | null = this.search(this.root, key);
 
-        // Then return the value
         return node == null ? null : node.value;
     }
 

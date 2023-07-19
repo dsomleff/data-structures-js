@@ -3,7 +3,7 @@ import BTS from "./BTS";
 describe('Binary Search Tree', () => {
     const bst = new BTS();
 
-    it('should insert the Node', () => {
+    it('should insert and find the Node', () => {
         bst.insert(5, "e");
         bst.insert(3, "c");
         bst.insert(2, "b");
@@ -20,7 +20,5 @@ describe('Binary Search Tree', () => {
         expect("f").toEqual(bst.find(6));
         expect("h").toEqual(bst.find(8));
         expect(null).toEqual(bst.find(99));
-
-        // bst.prettyPrint();
     });
 })
