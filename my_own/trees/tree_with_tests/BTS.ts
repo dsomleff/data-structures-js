@@ -7,7 +7,7 @@ export default class BTS {
         this.root = this.insertItem(this.root, key, value);
     }
 
-    public insertItem(node: BinaryNode | null, key: number, value: string) {
+    public insertItem(node: BinaryNode | null, key: number, value: string): BinaryNode {
         // If null - set it here. We are done.
         if (node == null) {
             node = new BinaryNode(key, value);
@@ -28,14 +28,13 @@ export default class BTS {
         return node;
     }
 
-    public find(key: number) {
+    public find(key: number): string | null {
+        // First find the node
+        let node: BinaryNode | null = this.search(this.root, key);
 
-    // First find the node
-    let node: BinaryNode | null = this.search(this.root, key);
-
-    // Then return the value
-    return node == null ? null : node.value;
-}
+        // Then return the value
+        return node == null ? null : node.value;
+    }
 
     private search(node: BinaryNode | null, key: number): BinaryNode | null {
         if (node == null || node.key == key) {
