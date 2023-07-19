@@ -1,4 +1,4 @@
-import BTS from "./binary_tree";
+import BTS from "./BTS";
 
 describe('Binary Search Tree', () => {
     const bst = new BTS();
@@ -21,6 +21,6 @@ describe('Binary Search Tree', () => {
         expect("h").toEqual(bst.find(8));
         expect(null).toEqual(bst.find(99));
 
-        bst.prettyPrint();
+        // bst.prettyPrint();
     });
 })

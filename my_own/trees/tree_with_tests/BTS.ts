@@ -1,14 +1,4 @@
-class BinaryNode {
-    constructor(public key: number, public value: string, public right: BinaryNode | null = null, public left: BinaryNode | null = null) {}
-
-    public min(): BinaryNode {
-        if (this.left == null) {
-            return this;
-        } else {
-            return this.left.min();
-        }
-    }
-}
+import BinaryNode from "./BinaryNode";
 
 export default class BTS {
     constructor(public root: BinaryNode | null = null) {}
@@ -36,5 +26,27 @@ export default class BTS {
         // Since duplicates are not allowed in BSTs, simply ignore the duplicate,
         // and return our fully constructed tree. We are done!
         return node;
+    }
+
+    public find(key: number) {
+
+    // First find the node
+    let node: BinaryNode | null = this.search(this.root, key);
+
+    // Then return the value
+    return node == null ? null : node.value;
+}
+
+    private search(node: BinaryNode | null, key: number): BinaryNode | null {
+        if (node == null || node.key == key) {
+            return node;
+        } else if (key < node.key) {
+            return this.search(node.left, key);
+        } else if (key > node.key) {
+            return this.search(node.right, key);
+        }
+
+        return null;
+        // Note: Duplicate keys aren't allowed (so we don't need to check for that)
     }
 }
