@@ -1,4 +1,7 @@
-# Tree Traversal
+# Tree (Binary Search Tree)
+- Amazing for Searching
+- Can be full, Perfect and Balanced.
+- [Here is more](https://github.com/dsomleff/data-structures-js/blob/main/courses/trees/README.md)
 
 ### Depth First Traversal
 Simple tree 
@@ -26,3 +29,5 @@ P.S. Combine Root and Pre/Post to remember  it: Pre -> Root 1st; Post -> Root la
 - It works like a queue structure.
 - NOT save the shape of a tree.
 
+# BST Runtime
+O (log n) - Find, Insert, Delete
