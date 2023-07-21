@@ -23,27 +23,27 @@ describe('Binary Search Tree', () => {
         expect("h").toEqual(bst.find(8));
         expect(null).toEqual(bst.find(99));
 
-        console.log(bst.prettyPrint());
+        // console.log(bst.prettyPrint());
     });
 
     it('should delete no child', () => {
         bst.delete(bst.root, 2);
 
         expect(bst.find(2)).toBeNull();
-        console.log(bst.prettyPrint());
+        // console.log(bst.prettyPrint());
     });
 
     it('should delete one child', () => {
         bst.delete(bst.root, 7);
 
         expect(bst.find(7)).toBeNull();
-        console.log(bst.prettyPrint());
+        // console.log(bst.prettyPrint());
     });
 
     it('should delete two children', () => {
         bst.delete(bst.root, 7);
 
         expect(bst.find(7)).toBeNull();
-        console.log(bst.prettyPrint());
+        // console.log(bst.prettyPrint());
     });
 })
