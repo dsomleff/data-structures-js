@@ -1,4 +1,4 @@
-# Heap (priority queue)
+# Heap (Binary Heap, Priority Queue)
 
 It's a binary tree where every child and grand child is smaller (MaxHeap) or larger(MinHeap) than the current node.
 - Whenever a node is added we adjust the Heap
@@ -7,6 +7,7 @@ It's a binary tree where every child and grand child is smaller (MaxHeap) or lar
 - Heap maintain week ordering and usually full or complete tree.
 - MinHeap - root is the minimum item
 - MaxHeap - root is the maximum item.
+- Duplicates are ok in Heap.
 - Typically, Heap do not support update Node logic, but it's possible.
 ```
              50 -> MinHeap: every node bellow must be >= 
@@ -22,3 +23,6 @@ It's a binary tree where every child and grand child is smaller (MaxHeap) or lar
          /  \   / \
        19    2 20 11  
 ```
+- Implemented without Node class, but simply as an array
+- Usage: (surprise) to prioritise things, Kernel process schedule e.g.
+- Efficiency: we do all work in one place(array) without any additional pointers. Witch is good for performance.
