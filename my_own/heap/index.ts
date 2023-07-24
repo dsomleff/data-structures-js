@@ -19,13 +19,13 @@ export default class MinHeap {
         }
 
         const out = this.data[0];
+        this.length--;
 
-        if (this.length === 1) {
+        if (this.length === 0) {
             this.data = [];
             return out;
         }
 
-        this.length--;
         this.data[0] = this.data[this.length];
         this.heapifyDown(0);
         return out;
