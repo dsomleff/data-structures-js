@@ -1,15 +1,35 @@
 export default class MinHeap {
     public length: number;
-    private readonly data: number[];
+    private data: number[];
 
     constructor() {
         this.length = 0;
         this.data = [];
     }
 
-    insert(value: number): void {}
+    insert(value: number): void {
+        this.data[this.length] = value;
+        this.heapifyUp(this.length);
+        this.length++;
+    }
 
-    delete(): number {}
+    delete(): number {
+        if (this.length === 0) {
+            return -1;
+        }
+
+        const out = this.data[0];
+
+        if (this.length === 1) {
+            this.data = [];
+            return out;
+        }
+
+        this.length--;
+        this.data[0] = this.data[this.length];
+        this.heapifyDown(0);
+        return out;
+    }
 
     private heapifyUp(idx: number): void {
         if (idx === 0) {
