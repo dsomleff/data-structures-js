@@ -25,4 +25,5 @@ It's a binary tree where every child and grand child is smaller (MaxHeap) or lar
 ```
 - Implemented without Node class, but simply as an array
 - Usage: (surprise) to prioritise things, Kernel process schedule e.g.
-- Efficiency: we do all work in one place(array) without any additional pointers. Witch is good for performance.
+- Efficiency: we do all work in one place(array) without any additional pointers. Which is good for performance.
+- If its not priority queue, it's a trie. Or try trees / prefix / digital tree.
