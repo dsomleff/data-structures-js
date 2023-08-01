@@ -1,6 +1,7 @@
 # Tree (Binary Search Tree)
 - Amazing for Searching
 - Can be full, Perfect and Balanced.
+- Usage: Dictionary, Phone Books, Users (with numerical IDs)
 - [Here is more](https://github.com/dsomleff/data-structures-js/blob/main/courses/trees/README.md)
 
 ### Depth First Traversal
