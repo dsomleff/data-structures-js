@@ -1,6 +1,7 @@
 # Tree (Binary Search Tree)
 - Amazing for Searching
 - Can be full, Perfect and Balanced.
+- Usage: Dictionary, Phone Books, Users (with numerical IDs)
 - [Here is more](https://github.com/dsomleff/data-structures-js/blob/main/courses/trees/README.md)
 
 ### Depth First Traversal
@@ -11,8 +12,8 @@ Simple tree
       2   3
 ```
 - Inorder (L, Root, R): 213
-- Preorder (Root, L, R):  123
-- Postorder (L, R. Root):  231
+- Preorder (Root, L, R):  123 - good for copying BT
+- Postorder (L, R. Root):  231 - used for deletion algorythm
 
 P.S. Combine Root and Pre/Post to remember  it: Pre -> Root 1st; Post -> Root last
 
