@@ -1,5 +1,7 @@
+import HashTable from "./index";
+
 describe('Hash table', () => {
-    const hashTable = new HashTable();
+    const hashTable = new HashTable(7);
 
     const seedTheTable = () => {
         hashTable.put("John Smith", "521-1234");
