@@ -1,8 +1,8 @@
 # Hash Tables
 
 ## Killer features
-- Search - O(1)
-- Insert - O(1)
+- Search, Insert, Delete - O(1) with good hash function
+- Search, Insert, Delete - O(n) with terrible hash function
 
 ## Structure
 ```js
