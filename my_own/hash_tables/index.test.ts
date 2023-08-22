@@ -11,6 +11,11 @@ describe('Hash table', () => {
         hashTable.put("Ted Baker", "418-4165");
     }
 
+    it('should show Empty', () => {
+        expect(null).toEqual(hashTable.get("Ted Baker"));
+        expect(null).toEqual(hashTable.get("Tim Lee"));
+    });
+
     it('should confirm Put and Get methods are work', () => {
         seedTheTable();
 
@@ -19,11 +24,6 @@ describe('Hash table', () => {
         expect("521-5030").toEqual(hashTable.get("Sam Doe"));
         expect("521-9655").toEqual(hashTable.get("Sandra Dee"));
         expect("418-4165").toEqual(hashTable.get("Ted Baker"));
-    });
-
-    it('should show Empty', () => {
-        expect(null).toEqual(hashTable.get("Ted Baker"));
-        expect(null).toEqual(hashTable.get("Tim Lee"));
     });
 
     it('should confirm Collision is working', () => {

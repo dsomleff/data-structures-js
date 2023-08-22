@@ -2,9 +2,6 @@ type MyNode = {
     key: string,
     value: string,
     next: MyNode | null
-    // value: T,
-    // prev?: MyNode<T>,
-    // next?: MyNode<T>,
 }
 
 export default class HashTable {
@@ -26,16 +23,31 @@ export default class HashTable {
     put(key: string, value: string): void {
         let index = this._hash(key);
         let node = {key: key, value: value} as MyNode;
-        let current = this.dataMap[index] as MyNode;
 
-        if (current === null) {
+        if (!this.dataMap[index]) {
             this.dataMap[index] = node;
         } else {
+            let current = this.dataMap[index] as MyNode;
             // collision case
-            while (current.next !== null) {
+            while (current.next) {
                 current = current.next;
             }
             current.next = node;
         }
+    }
+
+    get(key: string): string | null {
+        let index = this._hash(key);
+        let current = this.dataMap[index] as MyNode;
+
+        if (current) {
+            while (current.key !== key && current.next !== null) {
+                current = current.next;
+            }
+
+            return current.value;
+        }
+
+        return null;
     }
 }
