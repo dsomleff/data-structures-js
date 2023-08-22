@@ -38,14 +38,17 @@ export default class HashTable {
 
     get(key: string): string | null {
         let index = this._hash(key);
-        let current = this.dataMap[index] as MyNode;
+        let current: MyNode | null = this.dataMap[index] as MyNode;
 
-        if (current) {
-            while (current.key !== key && current.next !== null) {
-                current = current.next;
+        if (!current) {
+            return null;
+        }
+
+        while (current) {
+            if (current.key === key) {
+                return current.value;
             }
-
-            return current.value;
+            current = current.next;
         }
 
         return null;
