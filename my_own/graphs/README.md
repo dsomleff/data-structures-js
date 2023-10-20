@@ -22,3 +22,14 @@
 BigO is commonly stated in terms of V and E where V stands for vertices and E stands for edges. <br/>
 
 So O(V * E) means that we will check every vertex, and on every vertex we check every edge
+
+
+### How are graphs represented
+- adj list: list of edges, connections to the nodes. Usually they have 
+```js
+[{to: node_to_which_connected, weight: number}]
+```
+- adj matrix: list of nodes that looks like, memory consuming `O (v)2`
+
+### Basic Searches
+BFS and DFS still exist on a graph, and they are virtually no different from the tree.
