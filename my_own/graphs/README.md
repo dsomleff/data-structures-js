@@ -33,3 +33,9 @@ So O(V * E) means that we will check every vertex, and on every vertex we check 
 
 ### Basic Searches
 BFS and DFS still exist on a graph, and they are virtually no different from the tree.
+
+### Dijkstra's Shortest Path
+ - it is calculating the shortest path from one node to all other nodes in the graph. Which means we can also 
+ specifically find it to an individual node as well. Because once you have the full graph marked out, it's very easy just to find that one path from A to B long as you have a previous list.
+ - No negative weights
+ - 
