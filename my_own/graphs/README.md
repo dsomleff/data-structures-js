@@ -95,7 +95,9 @@ So O(V * E) means that we will check every vertex, and on every vertex we check 
 
 ---
 ### Basic Searches
-BFS and DFS still exist on a graph, and they are virtually no different from the tree.
+BFS and DFS still exist on a graph, and they are virtually no different from the tree. <br>
+BFS uses a queue and DFS uses stack.
+
 
 ---
 ### Dijkstra's Shortest Path

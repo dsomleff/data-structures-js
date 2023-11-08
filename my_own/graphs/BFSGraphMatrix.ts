@@ -4,7 +4,7 @@ declare type WeightedAdjacencyMatrix = number[][] // Number means weight
  * Return the path that we took while looking for a needle
  */
 export default function bfs(graph: WeightedAdjacencyMatrix, source: number, needle: number):number[] | null {
-    const seen = new Array(graph.length).fill(false); // all visited nodes
+    const seen = new Array(graph.length).fill(false); // all visited nodes are false at the beginning
     const prev = new Array(graph.length).fill(-1); // from where we came from to this node
 
     seen[source] = true;
@@ -17,9 +17,9 @@ export default function bfs(graph: WeightedAdjacencyMatrix, source: number, need
             break; // found it!
         }
 
-        const adjs = graph[curr];
-        for (let i = 0; i < adjs.length; i++) {
-            if (adjs[i] === 0) {
+        const adjacency = graph[curr];
+        for (let i = 0; i < adjacency.length; i++) {
+            if (adjacency[i] === 0) {
                 continue; // no edge at this point
             }
 
