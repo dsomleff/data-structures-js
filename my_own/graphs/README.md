@@ -96,7 +96,13 @@ So O(V * E) means that we will check every vertex, and on every vertex we check 
 ---
 ### Basic Searches
 BFS and DFS still exist on a graph, and they are virtually no different from the tree. <br>
-BFS uses a queue and DFS uses stack.
+- Better for near the top. Find neighbours. 
+- Uses queue
+- FB, Linkedin. <br><br>
+BFS uses a queue and DFS uses stack.<br>
+- Better find things far away
+- Uses stack
+- Chess game
 
 
 ---
